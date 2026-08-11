@@ -113,10 +113,23 @@ WORDS.forEach(([de,en])=>{
   const r=document.createElement('div');r.className='word-row';r.innerHTML=`<strong>${de}</strong><span>${en}</span>`;wl.appendChild(r);
 });
 
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{
+function activateTab(tabId, save=true){
+  const btn = document.querySelector(`.tab[data-tab="${tabId}"]`);
+  const panel = document.getElementById(tabId);
+  if (!btn || !panel) return;
   document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById(btn.dataset.tab).classList.add('active');
+  panel.classList.add('active');
+  if (save) {
+    try { localStorage.setItem('artemisFunktafel.activeTab', tabId); } catch(e) {}
+  }
   window.scrollTo({top:0,behavior:'auto'});
-}));
+}
+
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>activateTab(btn.dataset.tab)));
+
+try {
+  const savedTab = localStorage.getItem('artemisFunktafel.activeTab');
+  if (savedTab) activateTab(savedTab, false);
+} catch(e) {}

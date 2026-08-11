@@ -86,10 +86,17 @@
   </main>
 
   <footer>
-    <span>Artemis Funktafel V1.1</span>
+    <span>Artemis Funktafel V1.2</span>
     <span>für iPhone & iPad · GitHub Pages</span>
   </footer>
 
   <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>

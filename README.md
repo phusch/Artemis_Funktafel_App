@@ -1,21 +1,24 @@
-# Artemis Funktafel V1.1
+# Artemis Funktafel V1.2 – Offline-PWA
 
-Einfache zweisprachige Funktafel für Binnenfunk in Friesland.
+Sehr einfache zweisprachige Funktafel für iPhone und iPad.
 
 ## Reiter
-- Start: UBI-Kurzregeln und Grundformulierungen
+- Start – UBI-Kurzregeln und Grundformulierungen
 - Schleuse
 - Brücke
 - Hafenmeister
-- Nautische Wörter Deutsch / Englisch
+- Wörter – wichtige nautische Begriffe Deutsch / Englisch
 
-## Verwendung auf GitHub Pages
-1. Alle Dateien dieses Ordners in ein GitHub-Repository laden.
-2. GitHub Pages für den Branch `main` und den Root-Ordner aktivieren.
-3. Die erzeugte HTTPS-Adresse auf iPhone/iPad in Safari öffnen.
-4. Teilen -> Zum Home-Bildschirm.
+## Offline-Nutzung
+Die App verwendet einen Service Worker und speichert nach dem ersten erfolgreichen Laden alle für die App benötigten Dateien lokal im Browser-Cache.
 
-Die App benötigt keine Datenbank und keine Cloud-Funktionen. Sie besteht nur aus HTML, CSS, JavaScript, Manifest und lokalen Icons.
+Vorgehen auf iPhone/iPad:
+1. GitHub-Pages-Link einmal mit Internetverbindung in Safari öffnen.
+2. Die Seite vollständig laden lassen.
+3. Teilen → „Zum Home-Bildschirm“.
+4. Danach kann die installierte Funktafel auch ohne Internetverbindung geöffnet werden.
 
+Der zuletzt verwendete Reiter wird zusätzlich lokal gespeichert.
 
-V1.1: Rettungsring-Symbol 🛟 als sichtbares App-Logo und Home-Screen-Icon.
+## GitHub Pages
+Alle Dateien dieses Ordners in das für GitHub Pages verwendete Repository hochladen. `index.html` muss im veröffentlichten Ordner liegen. Der Service Worker funktioniert über HTTPS; GitHub Pages erfüllt diese Voraussetzung.
