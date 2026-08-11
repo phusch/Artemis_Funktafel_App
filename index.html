@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5efe4" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Funktafel" />
+  <title>Artemis Funktafel</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon-180.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-icon" aria-label="Rettungsring">🛟</div>
+      <div>
+        <h1>Artemis Funktafel</h1>
+        <p>Friesland · Binnenfunk DE / EN</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Hauptnavigation">
+    <button class="tab active" data-tab="start">Start</button>
+    <button class="tab" data-tab="lock">Schleuse</button>
+    <button class="tab" data-tab="bridge">Brücke</button>
+    <button class="tab" data-tab="harbour">Hafenmeister</button>
+    <button class="tab" data-tab="words">Wörter</button>
+  </nav>
+
+  <main>
+    <section id="start" class="panel active">
+      <div class="hero-card">
+        <h2>UBI – Kurzregeln</h2>
+        <div class="rule-grid">
+          <div><strong>1.</strong> Kanal prüfen und zuerst hören.</div>
+          <div><strong>2.</strong> Funkstelle nennen, dann „Motoryacht Artemis“.</div>
+          <div><strong>3.</strong> Position / Richtung kurz nennen.</div>
+          <div><strong>4.</strong> Anliegen in einem Satz formulieren.</div>
+          <div><strong>5.</strong> Kurz sprechen, Sprechtaste loslassen, zuhören.</div>
+          <div><strong>6.</strong> Im Binnenbetrieb ATIS und geringe Sendeleistung verwenden.</div>
+        </div>
+      </div>
+
+      <div class="section-title">Grundschema</div>
+      <article class="phrase-card">
+        <p class="de">„[Funkstelle], hier Motoryacht Artemis. Wir kommen aus Richtung [Ort] und möchten [Anliegen].“</p>
+        <p class="en">“[Station], motor yacht Artemis. Approaching from [place], requesting [passage / opening / berth].”</p>
+      </article>
+
+      <div class="section-title">Wichtige Redewendungen</div>
+      <div class="cards" id="start-cards"></div>
+
+      <div class="section-title">Artemis – Bootsdaten</div>
+      <div class="boat-data">
+        <div><span>Länge</span><strong>12,30 m</strong><small>Length 12.30 m</small></div>
+        <div><span>Breite</span><strong>3,85 m</strong><small>Beam 3.85 m</small></div>
+        <div><span>Tiefgang</span><strong>1,15 m</strong><small>Draught 1.15 m</small></div>
+        <div><span>Höhe</span><strong>4,15 m</strong><small>Air draught 4.15 m</small></div>
+      </div>
+    </section>
+
+    <section id="lock" class="panel">
+      <div class="section-title">Schleuse – Funk & Manöver</div>
+      <div class="cards" id="lock-cards"></div>
+    </section>
+
+    <section id="bridge" class="panel">
+      <div class="section-title">Brücke – Funk & Öffnung</div>
+      <div class="cards" id="bridge-cards"></div>
+    </section>
+
+    <section id="harbour" class="panel">
+      <div class="section-title">Hafenmeister – Ankunft & Versorgung</div>
+      <div class="cards" id="harbour-cards"></div>
+    </section>
+
+    <section id="words" class="panel">
+      <div class="section-title">Wichtige nautische Wörter</div>
+      <div class="word-list" id="word-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Artemis Funktafel V1.1</span>
+    <span>für iPhone & iPad · GitHub Pages</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
