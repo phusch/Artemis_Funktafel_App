@@ -1,4 +1,4 @@
-# Artemis Funktafel V1.2 – Offline-PWA
+# Artemis Funktafel V1.3 – Offline-PWA
 
 Sehr einfache zweisprachige Funktafel für iPhone und iPad.
 
@@ -22,3 +22,13 @@ Der zuletzt verwendete Reiter wird zusätzlich lokal gespeichert.
 
 ## GitHub Pages
 Alle Dateien dieses Ordners in das für GitHub Pages verwendete Repository hochladen. `index.html` muss im veröffentlichten Ordner liegen. Der Service Worker funktioniert über HTTPS; GitHub Pages erfüllt diese Voraussetzung.
+
+
+## Offline-Nutzung auf iPhone/iPad
+1. Ordnerinhalt auf GitHub Pages hochladen.
+2. Die GitHub-Pages-Adresse in Safari mit Internetverbindung öffnen.
+3. Seite einmal vollständig laden, anschließend über **Teilen > Zum Home-Bildschirm** installieren.
+4. Die installierte App noch einmal bei bestehender Internetverbindung öffnen und wieder schließen.
+5. Danach funktioniert die App über das Home-Screen-Symbol auch ohne Internet.
+
+V1.3 verwendet einen robusteren Navigation-Fallback für iOS/PWA und GitHub Pages.
