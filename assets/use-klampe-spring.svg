@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560"><rect width="100%" height="100%" class="bg"/>
+<style>
+  .bg{fill:#f8f4ec}.water{fill:#dfeef6}.rope{fill:none;stroke:#c77c3f;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}
+  .obj{fill:#6b7c93}.obj2{fill:#7fa8b2}.line{fill:none;stroke:#2d6f73;stroke-width:8;stroke-linecap:round}
+  .txt{font: 600 22px DejaVu Sans, Arial, sans-serif; fill:#24323a}
+  .cap{font: 500 18px DejaVu Sans, Arial, sans-serif; fill:#3d4b55}
+</style>
+
+<text x="450" y="95" text-anchor="middle" class="txt">Klampe belegen · Spring auf der Klampe</text>
+<rect x="100" y="165" width="700" height="250" rx="28" fill="#dfeef6"/>
+<rect x="315" y="260" width="170" height="35" rx="14" fill="#6b7c93"/>
+<rect x="330" y="220" width="42" height="120" rx="18" fill="#6b7c93"/>
+<rect x="428" y="220" width="42" height="120" rx="18" fill="#6b7c93"/>
+<path d="M720 215 L480 280" class="rope"/>
+<path d="M480 280 L332 280 L462 235 L332 325 L462 280 L350 245" class="rope"/>
+<text x="140" y="385" class="cap">gleiches Belegen, hier beispielhaft für eine Spring</text>
+</svg>

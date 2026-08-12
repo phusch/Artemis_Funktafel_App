@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon-180.png" type="image/png" />
   <link rel="apple-touch-icon" href="icon-180.png" />
-  <link rel="stylesheet" href="styles.css?v=1.3" />
+  <link rel="stylesheet" href="styles.css?v=1.4.6" />
 </head>
 <body>
   <header class="app-header">
@@ -29,13 +29,15 @@
     <button class="tab" data-tab="lock">Schleuse</button>
     <button class="tab" data-tab="bridge">Brücke</button>
     <button class="tab" data-tab="harbour">Hafenmeister</button>
-    <button class="tab" data-tab="words">Wörter</button>
+    <button class="tab" data-tab="knots">Knoten</button>
+    <button class="tab" data-tab="mooring">Festmachen</button>
+    <button class="tab" data-tab="words">Nautik</button>
   </nav>
 
   <main>
     <section id="start" class="panel active">
       <div class="hero-card">
-        <div class="start-heading"><h2>UBI – Kurzregeln</h2><span class="version-badge">Version 1.3</span></div>
+        <div class="start-heading"><h2>UBI – Kurzregeln</h2><span class="version-badge">Version 1.4.6</span></div>
         <div class="rule-grid">
           <div><strong>1.</strong> Kanal prüfen und zuerst hören.</div>
           <div><strong>2.</strong> Funkstelle nennen, dann „Motoryacht Artemis“.</div>
@@ -79,18 +81,56 @@
       <div class="cards" id="harbour-cards"></div>
     </section>
 
+    <section id="knots" class="panel">
+      <div class="section-title">Knoten an Bord der Artemis</div>
+      <div id="knot-list" class="knot-list"></div>
+    </section>
+
+    <section id="mooring" class="panel">
+      <div class="section-title">Artemis sicher festmachen</div>
+      <div id="mooring-list" class="mooring-list"></div>
+    </section>
+
     <section id="words" class="panel">
-      <div class="section-title">Wichtige nautische Wörter</div>
+      <div class="section-title">Nautische Begriffe & Übersetzungen</div>
       <div class="word-list" id="word-list"></div>
+
+      <div class="section-title">Nautische Begriffe kurz erklärt</div>
+      <div class="nautic-explain-list" id="nautic-explain-list"></div>
+
+      <div class="section-title">Umrechnungen</div>
+      <div class="conversion-card">
+        <div class="conversion-row">
+          <label for="nm-input">Seemeilen (sm / NM)</label>
+          <div class="conversion-input-row"><input id="nm-input" inputmode="decimal" type="number" step="any" placeholder="z. B. 10"><span>=</span><output id="km-output">0 km</output></div>
+        </div>
+        <div class="conversion-row">
+          <label for="km-input">Kilometer (km)</label>
+          <div class="conversion-input-row"><input id="km-input" inputmode="decimal" type="number" step="any" placeholder="z. B. 18,52"><span>=</span><output id="nm-output">0 sm</output></div>
+        </div>
+        <div class="conversion-row">
+          <label for="kn-input">Knoten (kn)</label>
+          <div class="conversion-input-row"><input id="kn-input" inputmode="decimal" type="number" step="any" placeholder="z. B. 6"><span>=</span><output id="kmh-output">0 km/h</output></div>
+        </div>
+        <div class="conversion-row">
+          <label for="kmh-input">Kilometer pro Stunde (km/h)</label>
+          <div class="conversion-input-row"><input id="kmh-input" inputmode="decimal" type="number" step="any" placeholder="z. B. 11,1"><span>=</span><output id="kn-output">0 kn</output></div>
+        </div>
+        <div class="conversion-row">
+          <label for="m-input">Meter (m)</label>
+          <div class="conversion-input-row"><input id="m-input" inputmode="decimal" type="number" step="any" placeholder="z. B. 4,15"><span>=</span><output id="ft-output">0 ft</output></div>
+        </div>
+        <div class="conversion-hint"><strong>Merke:</strong> 1 Seemeile = 1,852 km · 1 kn = 1 sm/h = 1,852 km/h.</div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <span>Artemis Funktafel V1.3</span>
+    <span>Artemis Funktafel V1.4.6</span>
     <span>für iPhone & iPad · GitHub Pages</span>
   </footer>
 
-  <script src="app.js?v=1.3"></script>
+  <script src="app.js?v=1.4.6"></script>
   <script>
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
       window.addEventListener('load', async () => {

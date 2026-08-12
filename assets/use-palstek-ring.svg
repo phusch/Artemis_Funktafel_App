@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560"><rect width="100%" height="100%" class="bg"/>
+<style>
+  .bg{fill:#f8f4ec}.water{fill:#dfeef6}.rope{fill:none;stroke:#c77c3f;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}
+  .obj{fill:#6b7c93}.obj2{fill:#7fa8b2}.line{fill:none;stroke:#2d6f73;stroke-width:8;stroke-linecap:round}
+  .txt{font: 600 22px DejaVu Sans, Arial, sans-serif; fill:#24323a}
+  .cap{font: 500 18px DejaVu Sans, Arial, sans-serif; fill:#3d4b55}
+</style>
+
+<text x="450" y="95" text-anchor="middle" class="txt">Palstek · Festmacher am Ring</text>
+<rect x="70" y="400" width="760" height="86" rx="16" fill="#d7c4aa"/>
+<text x="450" y="455" text-anchor="middle" class="cap">Kai / Ring</text>
+<circle cx="270" cy="350" r="45" fill="none" stroke="#6b7c93" stroke-width="16"/>
+<path d="M270 305 L270 260" class="line"/>
+<path d="M670 170 L670 295 Q670 350 610 350 L395 350" class="rope"/>
+<ellipse cx="332" cy="350" rx="62" ry="44" class="rope"/>
+<path d="M270 350 L238 319 L215 350 L252 381" class="rope"/>
+<text x="560" y="130" class="cap">Schlaufe wird über den Ring gelegt</text>
+<text x="560" y="160" class="cap">schnell, sauber, gut lösbar</text>
+</svg>

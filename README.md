@@ -1,4 +1,4 @@
-# Artemis Funktafel V1.3 – Offline-PWA
+# Artemis Funktafel V1.4.6 – Offline-PWA
 
 Sehr einfache zweisprachige Funktafel für iPhone und iPad.
 
@@ -31,4 +31,16 @@ Alle Dateien dieses Ordners in das für GitHub Pages verwendete Repository hochl
 4. Die installierte App noch einmal bei bestehender Internetverbindung öffnen und wieder schließen.
 5. Danach funktioniert die App über das Home-Screen-Symbol auch ohne Internet.
 
-V1.3 verwendet einen robusteren Navigation-Fallback für iOS/PWA und GitHub Pages.
+V1.4.6 verwendet einen robusteren Navigation-Fallback für iOS/PWA und GitHub Pages.
+
+
+## V1.4.6 – Knoten & Festmachen
+Additiv ergänzt: 6 Bordknoten sowie Festmachen längsseits, rückwärts und Springs. Alle Bilder liegen lokal im Projekt und werden vom Service Worker offline gecacht.
+
+### Bildquellen
+- Bowline tying.png – Buz11, CC BY-SA 4.0, Wikimedia Commons
+- Knot clove.jpg – Jazzmanian, Public Domain, Wikimedia Commons
+- Two half hitches 1.jpg – Smack, Public Domain, Wikimedia Commons
+- Knot figure eight.jpg – Jazzmanian, Public Domain, Wikimedia Commons
+- Fender protecting the side of a sailing vessel.jpg – Frank van Mierlo, CC BY 2.5, Wikimedia Commons
+- Chrome steel boat cleat with tied mooring rope – Marek Ślusarczyk, CC BY 3.0, Wikimedia Commons

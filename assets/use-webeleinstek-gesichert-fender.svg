@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560"><rect width="100%" height="100%" class="bg"/>
+<style>
+  .bg{fill:#f8f4ec}.water{fill:#dfeef6}.rope{fill:none;stroke:#c77c3f;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}
+  .obj{fill:#6b7c93}.obj2{fill:#7fa8b2}.line{fill:none;stroke:#2d6f73;stroke-width:8;stroke-linecap:round}
+  .txt{font: 600 22px DejaVu Sans, Arial, sans-serif; fill:#24323a}
+  .cap{font: 500 18px DejaVu Sans, Arial, sans-serif; fill:#3d4b55}
+</style>
+
+<text x="450" y="95" text-anchor="middle" class="txt">Webeleinstek gesichert · Fender dauerhaft</text>
+<rect x="120" y="170" width="660" height="26" rx="10" fill="#7fa8b2"/>
+<path d="M455 120 L455 205" class="rope"/>
+<path d="M455 145 C410 145 410 222 455 222" class="rope"/>
+<path d="M455 145 C500 145 500 222 455 222" class="rope"/>
+<path d="M455 222 Q545 240 520 305 Q500 350 455 335" class="rope"/>
+<circle cx="455" cy="337" r="86" fill="#ffffff" stroke="#2d6f73" stroke-width="18"/>
+<rect x="432" y="270" width="46" height="134" rx="20" fill="#ff8f6b"/>
+<text x="90" y="430" class="cap">zusätzlicher halber Schlag gegen unbeabsichtigtes Lockern</text>
+</svg>
