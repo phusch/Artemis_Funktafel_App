@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon-180.png" type="image/png" />
   <link rel="apple-touch-icon" href="icon-180.png" />
-  <link rel="stylesheet" href="styles.css?v=1.4.6" />
+  <link rel="stylesheet" href="styles.css?v=1.4.7" />
 </head>
 <body>
   <header class="app-header">
@@ -31,13 +31,14 @@
     <button class="tab" data-tab="harbour">Hafenmeister</button>
     <button class="tab" data-tab="knots">Knoten</button>
     <button class="tab" data-tab="mooring">Festmachen</button>
+    <button class="tab" data-tab="commands">Manöversprache</button>
     <button class="tab" data-tab="words">Nautik</button>
   </nav>
 
   <main>
     <section id="start" class="panel active">
       <div class="hero-card">
-        <div class="start-heading"><h2>UBI – Kurzregeln</h2><span class="version-badge">Version 1.4.6</span></div>
+        <div class="start-heading"><h2>UBI – Kurzregeln</h2><span class="version-badge">Version 1.4.7</span></div>
         <div class="rule-grid">
           <div><strong>1.</strong> Kanal prüfen und zuerst hören.</div>
           <div><strong>2.</strong> Funkstelle nennen, dann „Motoryacht Artemis“.</div>
@@ -91,6 +92,15 @@
       <div id="mooring-list" class="mooring-list"></div>
     </section>
 
+
+    <section id="commands" class="panel">
+      <div class="section-title">Manöversprache – Skipper & Crew</div>
+      <div class="command-intro">
+        <strong>Kurz, eindeutig, bestätigt.</strong> Der Skipper gibt einen klaren Auftrag. Die Crew meldet zurück, was tatsächlich passiert ist. Bei Gefahr gilt immer: <strong>„Stopp!“</strong>
+      </div>
+      <div id="command-list" class="command-list"></div>
+    </section>
+
     <section id="words" class="panel">
       <div class="section-title">Nautische Begriffe & Übersetzungen</div>
       <div class="word-list" id="word-list"></div>
@@ -126,11 +136,11 @@
   </main>
 
   <footer>
-    <span>Artemis Funktafel V1.4.6</span>
+    <span>Artemis Funktafel V1.4.7</span>
     <span>für iPhone & iPad · GitHub Pages</span>
   </footer>
 
-  <script src="app.js?v=1.4.6"></script>
+  <script src="app.js?v=1.4.7"></script>
   <script>
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
       window.addEventListener('load', async () => {

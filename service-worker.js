@@ -1,9 +1,9 @@
-const CACHE_NAME = 'artemis-funktafel-v1.4.6';
+const CACHE_NAME = 'artemis-funktafel-v1.4.7';
 const OFFLINE_URL = './index.html';
 const APP_SHELL = [
   './index.html',
-  './styles.css?v=1.4.6',
-  './app.js?v=1.4.6',
+  './styles.css?v=1.4.7',
+  './app.js?v=1.4.7',
   './manifest.webmanifest',
   './icon.svg',
   './icon-180.png',

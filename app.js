@@ -192,6 +192,169 @@ try {
 } catch(e) {}
 
 
+const MANEUVER_COMMANDS = [
+  {
+    category:'Anlegen',
+    note:'Abstände möglichst vom Crewmitglied am Bug oder auf der Anlegeseite ansagen lassen.',
+    items:[
+      ['Skipper','Fender raus.','Crew','Fender sind draußen.'],
+      ['Skipper','Leine klar machen.','Crew','Leine ist klar.'],
+      ['Skipper','Bug beobachten.','Crew','Bug frei.'],
+      ['Skipper','Heck beobachten.','Crew','Heck frei.'],
+      ['Crew','Drei Meter.','Skipper','Verstanden.'],
+      ['Crew','Zwei Meter.','Skipper','Verstanden.'],
+      ['Crew','Ein Meter.','Skipper','Verstanden.'],
+      ['Crew','Halber Meter.','Skipper','Verstanden.'],
+      ['Skipper','Leine über.','Crew','Leine ist über.'],
+      ['Skipper','Leine dicht nehmen.','Crew','Leine ist dicht.'],
+      ['Skipper','Leine belegen.','Crew','Leine belegt.'],
+      ['Skipper','Spring über.','Crew','Spring ist über.'],
+      ['Skipper','Spring belegen.','Crew','Spring belegt.'],
+      ['Crew','Kontakt am Fender.','Skipper','Verstanden.'],
+      ['Crew','Bug frei – Heck kommt ran.','Skipper','Verstanden.'],
+      ['Crew','Stopp!','Skipper','Stopp.']
+    ]
+  },
+  {
+    category:'Ablegen',
+    note:'Vor dem Lösen jeder Leine muss klar sein, welche Leine zuletzt hält.',
+    items:[
+      ['Skipper','Maschine klar?','Crew','Maschine klar.'],
+      ['Skipper','Vorleine los.','Crew','Vorleine ist los.'],
+      ['Skipper','Achterleine los.','Crew','Achterleine ist los.'],
+      ['Skipper','Vorspring los.','Crew','Vorspring ist los.'],
+      ['Skipper','Achterspring bleibt.','Crew','Achterspring bleibt belegt.'],
+      ['Skipper','Letzte Leine los.','Crew','Alle Leinen sind los.'],
+      ['Crew','Bug frei.','Skipper','Verstanden.'],
+      ['Crew','Heck frei.','Skipper','Verstanden.'],
+      ['Crew','Steuerbord frei.','Skipper','Verstanden.'],
+      ['Crew','Backbord frei.','Skipper','Verstanden.'],
+      ['Skipper','Leinen einholen.','Crew','Leinen sind an Bord.'],
+      ['Crew','Fender sind an Bord.','Skipper','Verstanden.']
+    ]
+  },
+  {
+    category:'Brückendurchfahrt',
+    note:'Eine Person beobachtet den höchsten Punkt und die Durchfahrt; nicht gleichzeitig mehrere Personen Entfernungen rufen lassen.',
+    items:[
+      ['Skipper','Brücke beobachten.','Crew','Brücke im Blick.'],
+      ['Skipper','Höhe prüfen.','Crew','Höhe frei.'],
+      ['Crew','Durchfahrt frei.','Skipper','Verstanden.'],
+      ['Crew','Gegenverkehr.','Skipper','Gegenverkehr gesehen.'],
+      ['Crew','Steuerbord frei.','Skipper','Verstanden.'],
+      ['Crew','Backbord frei.','Skipper','Verstanden.'],
+      ['Crew','Zwei Meter seitlich.','Skipper','Verstanden.'],
+      ['Crew','Ein Meter seitlich.','Skipper','Verstanden.'],
+      ['Crew','Mitte passt.','Skipper','Verstanden.'],
+      ['Crew','Höhe knapp.','Skipper','Stopp / zurück.'],
+      ['Crew','Stopp!','Skipper','Stopp.']
+    ]
+  },
+  {
+    category:'Schleuse – Einfahrt',
+    note:'Vor der Einfahrt Fender und Leinen auf der angesagten Schleusenseite vorbereiten.',
+    items:[
+      ['Skipper','Fender Steuerbord.','Crew','Fender Steuerbord klar.'],
+      ['Skipper','Fender Backbord.','Crew','Fender Backbord klar.'],
+      ['Skipper','Leinen Steuerbord klar.','Crew','Leinen Steuerbord klar.'],
+      ['Skipper','Leinen Backbord klar.','Crew','Leinen Backbord klar.'],
+      ['Crew','Einfahrt frei.','Skipper','Verstanden.'],
+      ['Crew','Zwei Meter zur Wand.','Skipper','Verstanden.'],
+      ['Crew','Ein Meter zur Wand.','Skipper','Verstanden.'],
+      ['Crew','Halber Meter.','Skipper','Verstanden.'],
+      ['Skipper','Bugleine über.','Crew','Bugleine ist über.'],
+      ['Skipper','Achterleine über.','Crew','Achterleine ist über.'],
+      ['Crew','Leinen sind belegt.','Skipper','Verstanden.']
+    ]
+  },
+  {
+    category:'Schleuse – während der Schleusung',
+    note:'Leinen nur führen, wenn das die Schleusenart erfordert. Niemals Hände, Füße oder Körper zwischen Boot und Wand einsetzen.',
+    items:[
+      ['Skipper','Leinen auf Slip halten.','Crew','Leinen auf Slip.'],
+      ['Skipper','Leine fieren.','Crew','Leine läuft.'],
+      ['Skipper','Leine dicht nehmen.','Crew','Leine ist dicht.'],
+      ['Crew','Leine klemmt.','Skipper','Stopp – Leine frei machen.'],
+      ['Crew','Fender sitzt.','Skipper','Verstanden.'],
+      ['Crew','Bug frei.','Skipper','Verstanden.'],
+      ['Crew','Heck frei.','Skipper','Verstanden.'],
+      ['Crew','Tor öffnet.','Skipper','Verstanden.']
+    ]
+  },
+  {
+    category:'Schleuse – Ausfahrt',
+    note:'Erst lösen, wenn die Ausfahrt freigegeben und der Weg frei ist.',
+    items:[
+      ['Skipper','Ausfahrt beobachten.','Crew','Ausfahrt frei.'],
+      ['Skipper','Bugleine los.','Crew','Bugleine ist los.'],
+      ['Skipper','Achterleine los.','Crew','Achterleine ist los.'],
+      ['Crew','Alle Leinen an Bord.','Skipper','Verstanden.'],
+      ['Crew','Bug frei.','Skipper','Verstanden.'],
+      ['Crew','Heck frei.','Skipper','Verstanden.'],
+      ['Crew','Gegenverkehr.','Skipper','Gegenverkehr gesehen.']
+    ]
+  },
+  {
+    category:'Enge Passage / Begegnung',
+    note:'Meldungen beziehen sich immer auf die Artemis: Steuerbord = rechte Bootsseite, Backbord = linke Bootsseite.',
+    items:[
+      ['Skipper','Steuerbord beobachten.','Crew','Steuerbord im Blick.'],
+      ['Skipper','Backbord beobachten.','Crew','Backbord im Blick.'],
+      ['Crew','Steuerbord frei.','Skipper','Verstanden.'],
+      ['Crew','Backbord frei.','Skipper','Verstanden.'],
+      ['Crew','Gegenverkehr voraus.','Skipper','Gesehen.'],
+      ['Crew','Abstand wird kleiner.','Skipper','Verstanden.'],
+      ['Crew','Zwei Meter.','Skipper','Verstanden.'],
+      ['Crew','Ein Meter.','Skipper','Verstanden.'],
+      ['Crew','Passiert.','Skipper','Verstanden.']
+    ]
+  },
+  {
+    category:'Festmachen & Kontrolle',
+    note:'Nach dem Manöver einmal alle Leinen und Fender gemeinsam kontrollieren.',
+    items:[
+      ['Skipper','Vorleine prüfen.','Crew','Vorleine belegt.'],
+      ['Skipper','Achterleine prüfen.','Crew','Achterleine belegt.'],
+      ['Skipper','Vorspring prüfen.','Crew','Vorspring belegt.'],
+      ['Skipper','Achterspring prüfen.','Crew','Achterspring belegt.'],
+      ['Skipper','Fender prüfen.','Crew','Fender sitzen.'],
+      ['Skipper','Leinen nachsetzen.','Crew','Leinen sind nachgesetzt.'],
+      ['Crew','Boot liegt frei.','Skipper','Manöver beendet.']
+    ]
+  },
+  {
+    category:'Gefahr / sofortiger Abbruch',
+    note:'„Stopp!“ darf jedes Crewmitglied jederzeit rufen. Der Ruf wird nicht diskutiert, sondern sofort umgesetzt.',
+    items:[
+      ['Crew','Stopp!','Skipper','Stopp.'],
+      ['Crew','Leine im Wasser!','Skipper','Neutral – Leine sichern.'],
+      ['Crew','Leine am Propellerbereich!','Skipper','Motor aus.'],
+      ['Crew','Person im Wasser!','Skipper','Mensch über Bord – Maschine neutral.'],
+      ['Crew','Abstand zu klein!','Skipper','Stopp / weg vom Hindernis.'],
+      ['Crew','Ich habe die Leine nicht sicher.','Skipper','Verstanden – Manöver abbrechen.']
+    ]
+  }
+];
+
+function renderManeuverCommands(){
+  const root=document.getElementById('command-list');
+  if(!root) return;
+  MANEUVER_COMMANDS.forEach(group=>{
+    const section=document.createElement('section');
+    section.className='command-group';
+    const rows=group.items.map(([role1,call,role2,reply])=>`
+      <div class="command-row">
+        <div class="command-side command-skipper"><span>${role1}</span><strong>${call}</strong></div>
+        <div class="command-arrow">→</div>
+        <div class="command-side command-crew"><span>${role2}</span><strong>${reply}</strong></div>
+      </div>`).join('');
+    section.innerHTML=`<div class="command-head"><h3>${group.category}</h3><p>${group.note}</p></div>${rows}`;
+    root.appendChild(section);
+  });
+}
+renderManeuverCommands();
+
+
 const KNOTS = [
   {
     name:'1. Palstek', en:'Bowline',
