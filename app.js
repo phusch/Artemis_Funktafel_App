@@ -355,6 +355,138 @@ function renderManeuverCommands(){
 renderManeuverCommands();
 
 
+const SHIPPING_SIGN_SECTIONS = [
+  {
+    title:'1. Schnell erkennen',
+    lead:'Die Signale, bei denen auf der Artemis keine Diskussion nötig ist.',
+    cards:[
+      ['🔴','Rot / rotes Brückensignal','Durchfahrt verboten. Warten und Freigabe abwarten.'],
+      ['🟢','Grün','Durchfahrt erlaubt, sofern Fahrweg und Gegenverkehr sicher sind.'],
+      ['🔴🟢','Rot + Grün','Durchfahrt noch verboten, Freigabe wird vorbereitet. Nicht vorzeitig einfahren.'],
+      ['🟡','Gelbes Durchfahrtslicht','Kann eine Durchfahrt unter einer geschlossenen bzw. sich bewegenden Brücke erlauben. Ein gelbes Licht: Gegenverkehr möglich; zwei gelbe Lichter: Gegenverkehr verboten.'],
+      ['⛔','Ein-/Aus-/Durchfahrt verboten','Nicht einfahren bzw. nicht weiterfahren.'],
+      ['⚓','Ankern erlaubt / verboten','Nur an dafür freigegebenen Stellen ankern; Verbotszeichen unbedingt beachten.'],
+      ['P','Stillliegen / Festmachen','Blaue Erlaubniszeichen gestatten Stillliegen bzw. Festmachen; rote Verbotszeichen untersagen es.']
+    ]
+  },
+  {
+    title:'2. Durchfahrt & Fahrwasser',
+    image:'assets/official-signs-overview.jpg',
+    imageAlt:'Offizielle deutsche Übersicht der Schifffahrtszeichen von Varen doe je Samen',
+    lead:'Für Kanäle und größere Binnenfahrwasser sind besonders diese Zeichen wichtig:',
+    bullets:[
+      '<strong>Durchfahrt verboten:</strong> rote Sperrzeichen = nicht einfahren.',
+      '<strong>Überholverbot:</strong> nicht überholen, bis das Verbot endet.',
+      '<strong>Steuerbordseite halten:</strong> der vorgeschriebenen Seite folgen. Auf dem Prinses-Margrietkanaal ist Steuerbordwal besonders wichtig.',
+      '<strong>Anhalten:</strong> am Zeichen stoppen und weitere Anweisung/Freigabe abwarten.',
+      '<strong>Geschwindigkeit:</strong> die angegebene Höchstgeschwindigkeit darf nicht überschritten werden.',
+      '<strong>Besondere Vorsicht:</strong> Geschwindigkeit reduzieren und Verkehr/Engstelle beobachten.',
+      '<strong>Schallsignal geben:</strong> vorgeschriebenes Signal rechtzeitig abgeben.',
+      '<strong>Hauptfahrwasser nicht behindern:</strong> beim Einfahren aus Nebenfahrwasser die durchgehende Schifffahrt frei halten.',
+      '<strong>Begrenzte Tiefe / Höhe / Breite:</strong> mit Artemis-Daten vergleichen: Tiefgang 1,15 m, Höhe 4,15 m, Breite 3,85 m.',
+      '<strong>VHF-Kanal:</strong> den am Zeichen angegebenen Kanal benutzen.'
+    ]
+  },
+  {
+    title:'3. Brücken',
+    image:'assets/official-bridge-signals.jpg',
+    imageAlt:'Offizielle deutsche Übersicht der niederländischen Brückenlichter',
+    lead:'Brückenlichter sind für die Friesland-Tour besonders wichtig.',
+    bullets:[
+      '<strong>Rot:</strong> Durchfahrt verboten.',
+      '<strong>Rot + Grün:</strong> Durchfahrt noch verboten, wird demnächst freigegeben.',
+      '<strong>Grün:</strong> Durchfahrt erlaubt.',
+      '<strong>Ein gelbes Licht:</strong> Durchfahrt unter einer geschlossenen bzw. noch nicht vollständig geöffneten Brücke kann erlaubt sein; Gegenverkehr ist möglich.',
+      '<strong>Zwei gelbe Lichter:</strong> Durchfahrt kann erlaubt sein; Gegenverkehr ist verboten.',
+      '<strong>Doppelrot:</strong> Brücke außer Betrieb / nicht bedient – Durchfahrt verboten, soweit kein zusätzliches gelbes oder grünes Signal etwas anderes erlaubt.',
+      '<strong>Rot – Doppelgrün:</strong> dieses neuere Signal kann in der Praxis vorkommen. Es entspricht zunächst Rot-Grün: noch nicht durchfahren; die zwei grünen Lichter kündigen eine Freigabe aus beiden Richtungen an.'
+    ],
+    note:'Artemis: Höhe über Wasser 4,15 m. Bei Unsicherheit nicht „auf gut Glück“ fahren – Brückenanzeige, Wasserstand und Funk/Bedienung prüfen.'
+  },
+  {
+    title:'4. Schleusen',
+    lead:'An Schleusen gelten Signal, Reihenfolge und sichere Leinenführung zusammen.',
+    cards:[
+      ['🔴','Rot','Nicht einfahren. Vor dem Signal oder am ausgewiesenen Warteplatz bleiben.'],
+      ['🔴🟢','Rot + Grün','Einfahrt wird vorbereitet – noch warten.'],
+      ['🟢','Grün','Einfahrt frei. Langsam und kontrolliert einfahren.'],
+      ['⚠️','Groß vor klein','Wenn große und kleine Schiffe gemeinsam geschleust werden, große Schiffe nicht vor dem Bug kreuzen und Anweisungen des Personals beachten.'],
+      ['⚙️','In der Kammer','Nach dem Festmachen Propeller/Schraube nicht laufen lassen. Leinen während des Schleusens führen und nie fest einklemmen.']
+    ]
+  },
+  {
+    title:'5. Festmachen & Ankern',
+    lead:'Rote Verbotszeichen und blaue Erlaubniszeichen unterscheiden.',
+    cards:[
+      ['🚫P','Liegeverbot','Auf der Seite des Schildes nicht stillliegen. Ein Zusatz kann den gesperrten Abstand bzw. die Breite angeben.'],
+      ['🚫⚓','Ankerverbot','Nicht ankern. Besonders in Brücken-, Schleusen-, Engstellen- und Fahrwasserbereichen beachten.'],
+      ['🚫⚓','Festmacheverbot','Nicht an Ufer, Dalben, Poller oder anderen Festmachepunkten belegen.'],
+      ['P','Stillliegen erlaubt','Stillliegen auf der Seite des Tafelzeichens erlaubt.'],
+      ['⚓','Ankern erlaubt','Ankern auf der Seite des Tafelzeichens erlaubt.'],
+      ['●','Festmachen am Ufer erlaubt','Festmachen am Ufer bzw. an vorgesehenen Festmachepunkten erlaubt.']
+    ]
+  },
+  {
+    title:'6. Hafen & Passantenhafen',
+    lead:'Hafensymbole können je nach Betreiber variieren. Verkehrszeichen haben Vorrang; Servicezeichen helfen bei der Versorgung.',
+    cards:[
+      ['P','Passantenliegeplatz / Stillliegen','Nur im freigegebenen Bereich und nach örtlicher Beschilderung liegen.'],
+      ['🚰','Trinkwasser','Zapfstelle für Trinkwasser.'],
+      ['⛽','Treibstoff','Tank- bzw. Versorgungsstelle; örtliche Hinweise beachten.'],
+      ['VHF','Hafenfunk / Informationen','Angegebenen Funkkanal bzw. Hafenmeisterkanal benutzen.'],
+      ['⚡','Landstrom','Kein BPR-Verkehrszeichen; in Häfen meist mit Stecker-/Stromsymbol gekennzeichnet.'],
+      ['🚻','Sanitär / Dusche','Hafenspezifische Servicekennzeichnung – nicht mit Verkehrszeichen verwechseln.'],
+      ['🛢️','Fäkalienabsaugung','Hafenspezifisches Pump-out-Symbol; Position beim Hafenmeister erfragen.']
+    ]
+  },
+  {
+    title:'7. Betonnung & Fahrwassermarkierung',
+    image:'assets/official-buoyage.jpg',
+    imageAlt:'Offizielle deutsche Übersicht Tonnen und Kardinalzeichen',
+    lead:'Die wichtigsten Markierungen aus der deutschen Infokarte:',
+    bullets:[
+      '<strong>Rote Stumpftonne:</strong> kennzeichnet den rechten Fahrwasserrand / das rechte Ufer in der amtlichen Bezugsrichtung.',
+      '<strong>Grüne Spitztonne:</strong> kennzeichnet den linken Fahrwasserrand / das linke Ufer in der amtlichen Bezugsrichtung.',
+      '<strong>Fahrrinnentonne:</strong> rot-grüne Markierung kennzeichnet eine Teilung bzw. den Verlauf der Fahrrinne.',
+      '<strong>Gelbe Markierung:</strong> Abgrenzung von Sondergebieten; Bereich und örtliche Hinweise beachten.',
+      '<strong>Pricken:</strong> gebündelte Zweige/Stangen können dieselbe Bedeutung wie grüne bzw. rote Fahrwassermarkierungen haben.',
+      '<strong>Kardinalzeichen:</strong> zeigen an, auf welcher Himmelsrichtung eine Gefahrenstelle sicher passiert wird.'
+    ],
+    note:'Nicht einfach nach eigener Fahrtrichtung „rot rechts / grün links“ annehmen. Maßgeblich ist die amtliche Fahrwasserrichtung bzw. die lokale Karte/Betonnung.'
+  },
+  {
+    title:'8. Wichtige Fahrregeln NL',
+    image:'assets/official-rules.jpg',
+    imageAlt:'Offizielle deutsche Übersicht wichtiger Vorfahrtsregeln',
+    lead:'Für die Artemis besonders wichtig:',
+    bullets:[
+      '<strong>Steuerbordwal:</strong> möglichst rechts / an Steuerbordseite des Fahrwassers halten. Auf dem Prinses-Margrietkanaal ist dies vorgeschrieben.',
+      '<strong>Berufsschifffahrt:</strong> große Schiffe sind weniger manövrierfähig und haben in vielen Situationen Vorrang. Nicht knapp vor ihrem Bug kreuzen.',
+      '<strong>Toter Winkel:</strong> bei großen Binnenschiffen kann er sehr lang sein. Merksatz: Wenn du die Steuerhütte sehen kannst, kann der Schiffsführer dich eher sehen.',
+      '<strong>Kleine Fahrzeuge untereinander:</strong> Windkraft vor Muskelkraft vor Motorkraft – sofern keine besondere Regel, Beschilderung oder Fahrwassersituation etwas anderes vorgibt.',
+      '<strong>Gute Seemannschaft:</strong> auch bei bestehendem Vorfahrtsrecht rechtzeitig ausweichen, wenn sonst eine gefährliche Situation entsteht.',
+      '<strong>Wellen & Sog:</strong> in der Nähe von Liegeplätzen, kleineren Fahrzeugen und Ufern Geschwindigkeit reduzieren und unnötige Wellen vermeiden.'
+    ]
+  }
+];
+
+function renderShippingSigns(){
+  const root=document.getElementById('sign-list');
+  if(!root) return;
+  SHIPPING_SIGN_SECTIONS.forEach(section=>{
+    const el=document.createElement('section');
+    el.className='sign-group';
+    const image=section.image ? `<figure class="sign-official"><img src="${section.image}" alt="${section.imageAlt || section.title}" loading="lazy"><figcaption>Auszug aus der offiziellen deutschen Wassersport-Infokarte von „Varen doe je Samen!“</figcaption></figure>` : '';
+    const cards=section.cards ? `<div class="sign-card-grid">${section.cards.map(([symbol,title,text])=>`<article class="sign-card"><div class="sign-symbol">${symbol}</div><div><h4>${title}</h4><p>${text}</p></div></article>`).join('')}</div>` : '';
+    const bullets=section.bullets ? `<ul class="sign-bullets">${section.bullets.map(x=>`<li>${x}</li>`).join('')}</ul>` : '';
+    const note=section.note ? `<div class="sign-note">${section.note}</div>` : '';
+    el.innerHTML=`<div class="sign-head"><h3>${section.title}</h3><p>${section.lead || ''}</p></div>${image}${cards}${bullets}${note}`;
+    root.appendChild(el);
+  });
+}
+renderShippingSigns();
+
+
 const KNOTS = [
   {
     name:'1. Palstek', en:'Bowline',

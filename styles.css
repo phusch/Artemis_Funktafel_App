@@ -52,3 +52,13 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:16px max(16px
 .command-skipper{background:#e7f2f2}.command-crew{background:#f7eadf}.command-arrow{display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:900;color:var(--muted)}
 .command-row:has(.command-side strong:first-child){}
 @media(max-width:600px){.command-row{grid-template-columns:1fr}.command-arrow{height:12px;transform:rotate(90deg)}.command-side strong{font-size:16px}}
+
+
+/* V1.4.8 Schifffahrtszeichen */
+.sign-source-card{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--sea);border-radius:16px;padding:14px 15px;margin-bottom:14px;box-shadow:var(--shadow)}
+.sign-source-card p{margin:7px 0 12px;line-height:1.45}.source-link{display:inline-block;text-decoration:none;background:var(--sea);color:#fff;font-weight:800;border-radius:999px;padding:9px 13px;font-size:14px}
+.sign-list{display:grid;gap:14px}.sign-group{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow)}
+.sign-head h3{margin:0;font-size:20px}.sign-head p{margin:6px 0 0;color:var(--muted);line-height:1.45}.sign-official{margin:13px 0 0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.sign-official img{display:block;width:100%;height:auto;max-height:760px;object-fit:contain;background:#fff}.sign-official figcaption{font-size:12px;color:var(--muted);padding:8px 10px;border-top:1px solid var(--line)}
+.sign-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.sign-card{display:grid;grid-template-columns:58px 1fr;gap:10px;align-items:start;background:var(--soft);border-radius:13px;padding:11px}.sign-symbol{width:52px;min-height:48px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:25px;font-weight:900;color:var(--accent-dark)}.sign-card h4{margin:0;font-size:15px}.sign-card p{margin:5px 0 0;font-size:13px;line-height:1.4;color:var(--ink)}
+.sign-bullets{margin:12px 0 0;padding-left:22px}.sign-bullets li{margin:8px 0;line-height:1.45}.sign-note{margin-top:12px;background:#eef6f7;border-left:4px solid var(--sea);border-radius:10px;padding:10px 12px;line-height:1.45;font-weight:650}
+@media(max-width:720px){.sign-card-grid{grid-template-columns:1fr}.sign-official img{max-height:none}.source-link{display:block;text-align:center}.sign-card{grid-template-columns:52px 1fr}}

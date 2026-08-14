@@ -1,13 +1,17 @@
-const CACHE_NAME = 'artemis-funktafel-v1.4.7';
+const CACHE_NAME = 'artemis-funktafel-v1.4.8';
 const OFFLINE_URL = './index.html';
 const APP_SHELL = [
   './index.html',
-  './styles.css?v=1.4.7',
-  './app.js?v=1.4.7',
+  './styles.css?v=1.4.8',
+  './app.js?v=1.4.8',
   './manifest.webmanifest',
   './icon.svg',
   './icon-180.png',
   './icon-512.png',
+  './assets/official-signs-overview.jpg',
+  './assets/official-bridge-signals.jpg',
+  './assets/official-buoyage.jpg',
+  './assets/official-rules.jpg',
   './assets/bowline.png',
   './assets/clove.jpg',
   './assets/half-hitch-post.jpg',

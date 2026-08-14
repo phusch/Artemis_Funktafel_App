@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon-180.png" type="image/png" />
   <link rel="apple-touch-icon" href="icon-180.png" />
-  <link rel="stylesheet" href="styles.css?v=1.4.7" />
+  <link rel="stylesheet" href="styles.css?v=1.4.8" />
 </head>
 <body>
   <header class="app-header">
@@ -32,13 +32,14 @@
     <button class="tab" data-tab="knots">Knoten</button>
     <button class="tab" data-tab="mooring">Festmachen</button>
     <button class="tab" data-tab="commands">Manöversprache</button>
+    <button class="tab" data-tab="signs">Schifffahrtszeichen</button>
     <button class="tab" data-tab="words">Nautik</button>
   </nav>
 
   <main>
     <section id="start" class="panel active">
       <div class="hero-card">
-        <div class="start-heading"><h2>UBI – Kurzregeln</h2><span class="version-badge">Version 1.4.7</span></div>
+        <div class="start-heading"><h2>UBI – Kurzregeln</h2><span class="version-badge">Version 1.4.8</span></div>
         <div class="rule-grid">
           <div><strong>1.</strong> Kanal prüfen und zuerst hören.</div>
           <div><strong>2.</strong> Funkstelle nennen, dann „Motoryacht Artemis“.</div>
@@ -101,6 +102,17 @@
       <div id="command-list" class="command-list"></div>
     </section>
 
+
+    <section id="signs" class="panel">
+      <div class="section-title">Schifffahrtszeichen – Friesland & niederländische Binnengewässer</div>
+      <div class="sign-source-card">
+        <strong>Offizielle deutsche Wassersport-Infokarte</strong>
+        <p>Die folgenden Übersichten basieren auf der deutschen Wassersport-Infokarte von „Varen doe je Samen!“ und sind für die Artemis auf die wichtigsten Situationen reduziert.</p>
+        <a class="source-link" href="https://cdn.prod.website-files.com/67d9891f29c33ea2bccf274a/69b7bfbb6d4473b8ebc21f77_web-duits-vaarbewaarkaart.pdf" target="_blank" rel="noopener">Deutsche Wassersport-Infokarte öffnen ↗</a>
+      </div>
+      <div id="sign-list" class="sign-list"></div>
+    </section>
+
     <section id="words" class="panel">
       <div class="section-title">Nautische Begriffe & Übersetzungen</div>
       <div class="word-list" id="word-list"></div>
@@ -136,11 +148,11 @@
   </main>
 
   <footer>
-    <span>Artemis Funktafel V1.4.7</span>
+    <span>Artemis Funktafel V1.4.8</span>
     <span>für iPhone & iPad · GitHub Pages</span>
   </footer>
 
-  <script src="app.js?v=1.4.7"></script>
+  <script src="app.js?v=1.4.8"></script>
   <script>
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
       window.addEventListener('load', async () => {

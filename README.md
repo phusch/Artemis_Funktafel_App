@@ -1,4 +1,4 @@
-# Artemis Funktafel V1.4.7 – Offline-PWA
+# Artemis Funktafel V1.4.8 – Offline-PWA
 
 Sehr einfache zweisprachige Funktafel für iPhone und iPad.
 
@@ -31,10 +31,10 @@ Alle Dateien dieses Ordners in das für GitHub Pages verwendete Repository hochl
 4. Die installierte App noch einmal bei bestehender Internetverbindung öffnen und wieder schließen.
 5. Danach funktioniert die App über das Home-Screen-Symbol auch ohne Internet.
 
-V1.4.7 verwendet einen robusteren Navigation-Fallback für iOS/PWA und GitHub Pages.
+V1.4.8 verwendet einen robusteren Navigation-Fallback für iOS/PWA und GitHub Pages.
 
 
-## V1.4.7 – Knoten & Festmachen
+## V1.4.8 – Knoten & Festmachen
 Additiv ergänzt: 6 Bordknoten sowie Festmachen längsseits, rückwärts und Springs. Alle Bilder liegen lokal im Projekt und werden vom Service Worker offline gecacht.
 
 ### Bildquellen
@@ -44,3 +44,8 @@ Additiv ergänzt: 6 Bordknoten sowie Festmachen längsseits, rückwärts und Spr
 - Knot figure eight.jpg – Jazzmanian, Public Domain, Wikimedia Commons
 - Fender protecting the side of a sailing vessel.jpg – Frank van Mierlo, CC BY 2.5, Wikimedia Commons
 - Chrome steel boat cleat with tied mooring rope – Marek Ślusarczyk, CC BY 3.0, Wikimedia Commons
+
+
+## V1.4.8 – Schifffahrtszeichen
+
+Additiv ergänzt wurde der Reiter **Schifffahrtszeichen** mit für die Artemis relevanten niederländischen Binnenzeichen, Brückenlichtern, Schleusenhinweisen, Festmach-/Ankerzeichen, Hafen-Servicehinweisen, Betonnung und wichtigen Fahrregeln. Die eingebundenen Referenzausschnitte stammen aus der offiziellen deutschen **Wassersport-Infokarte** von „Varen doe je Samen!“; in der App ist die vollständige aktuelle deutsche PDF direkt verlinkt.
